@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "34c0ff20-a52b-4788-8e75-671c99b3f624",
+		"name": "Reqres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26347927",
+		"_collection_link": "https://orange-meteor-196561.postman.co/workspace/Team-Workspace~2d25770d-19ec-4348-8b11-06c919fe57f9/collection/26347927-34c0ff20-a52b-4788-8e75-671c99b3f624?action=share&creator=26347927&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "postman",
+			"item": []
+		},
+		{
+			"name": "LIST USERS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"this is to test that we have values of Michael \"\r",
+							",function(){\r",
+							"let myResponse = pm.response.json()\r",
+							"pm.expect(myResponse.data[0].first_name).to.eql(\"Michael\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"this is to test that we have values of Lindsay \"\r",
+							",function(){\r",
+							"let myResponse = pm.response.json()\r",
+							"pm.expect(myResponse.data[1].first_name).to.eql(\"Lindsay\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"this is to test that we have values of Howell \"\r",
+							",function(){\r",
+							"let myResponse = pm.response.json()\r",
+							"pm.expect(myResponse.data[5].last_name).to.eql(\"Howell\")\r",
+							"})\r",
+							"\r",
+							"for(let i=0;i<12;i++){pm.test(\"this is to test that we have values of Howell \"\r",
+							",function(){\r",
+							"let myResponse = pm.response.json()\r",
+							"pm.expect(myResponse.data[i].avatar).to.eql(\"https://reqres.in/img/faces/12-image.jpg\")\r",
+							"})}\r",
+							"\r",
+							"console.log(\"4 pass and 9 fail\")"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"my project\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseurl}}users?page=2",
+					"host": [
+						"{{baseurl}}users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE USER",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE USER NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}12",
+					"host": [
+						"{{baseurl}}12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIST <RESOURCE>",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE <RESOURCE>",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "SINGLE <RESOURCE> NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test()"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"bayan\",\r\n    \"job\": \"qa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}UPDATE",
+					"host": [
+						"{{baseurl}}UPDATE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}UPDATE",
+					"host": [
+						"{{baseurl}}UPDATE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check the status of my request\"\r",
+							",function(){\r",
+							"pm.response.to.have.status(204)\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}users/2",
+					"host": [
+						"{{baseurl}}users"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER - SUCCESSFUL",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"for(let i=0;i<10;i++){pm.globals.set(\"email\",\"eve.holt@reqres\"+ i + \".in\")}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"pistol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}register",
+					"host": [
+						"{{baseurl}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REGISTER - UNSUCCESSFUL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"this is to test that error property isthere\"\r",
+							",function(){\r",
+							"let myResponse = pm.response.json()\r",
+							"pm.expect(myResponse).have.property(\"error\")\r",
+							"})\r",
+							"pm.test(\"this is to test that we have missing error massege \"\r",
+							",function(){\r",
+							"let myResponse = pm.response.json()\r",
+							"pm.expect(myResponse.error).to.eql(\"Missing email or username\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sydney@fife\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}register",
+					"host": [
+						"{{baseurl}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN - SUCCESSFUL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}LOGIN - SUCCESSFUL",
+					"host": [
+						"{{baseurl}}LOGIN - SUCCESSFUL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN - UNSUCCESSFUL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sydney@fife\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}register",
+					"host": [
+						"{{baseurl}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELAYED RESPONSE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let myresponse = pm.response.json()\r",
+							"\r",
+							"pm.test(\"test year 2001 id 2\",function(){\r",
+							"    pm.expect(myresponse.data[1].year).to.eql(2001)\r",
+							"})\r",
+							"pm.test(\"property total-page\",function(){\r",
+							"    pm.expect(myresponse).have.property(\"total_pages\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}DELAYED RESPONSE",
+					"host": [
+						"{{baseurl}}DELAYED RESPONSE"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://reqres.in/api/"
+		},
+		{
+			"key": "{baseurl",
+			"value": "https://reqres.in/"
+		}
+	]
+}
